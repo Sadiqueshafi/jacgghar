@@ -1,0 +1,11 @@
+{
+  "development":{
+    "PORT":3000,
+    "MONGOODB_URL":"mongodb+srv://post:sadique@123@cluster0-l08tx.mongodb.net/jachghar"
+  },
+  "production":{
+    "PORT":80,
+    "MONGOODB_URL":"mongodb+srv://post:sadique@123@cluster0-l08tx.mongodb.net/jachghar"
+  }
+
+}
