@@ -13,13 +13,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from '../../app-routing.module';
 import { RouterModule } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
+// import { authGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
 
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,

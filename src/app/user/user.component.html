@@ -1,7 +1,6 @@
 <div fxLayout="row" fxLayoutWrap="wrap" class="a">
   <!-- column -->
   <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-
           <mat-card-content>
               <!-- Row -->
               <div fxLayout="row" fxLayoutWrap="wrap">
@@ -12,28 +11,22 @@
                                   <mat-card class="mat-elevation-z2">
                                       <mat-button-toggle-group appearance="legacy" class="btn-round ">
                                           <mat-button-toggle value="login" (click)="logins()" >LogIn
-
                                           </mat-button-toggle>
                                           <mat-button-toggle value="SignUp" (click)="signups()">SignUp
                                           </mat-button-toggle>
-
                                       </mat-button-toggle-group>
                                       <mat-card-content *ngIf="login">
-
-
                                                   <div class="row">
                                                       <!-- <mat-spinner *ngIf="isLooding"></mat-spinner>  -->
                                                       <div class=" col-md-12 col-sm-12 col-md-offset-1">
                                                               <div fxFlex="center">
                                                               </div>
-
                                                               <form  (submit)="onLogin(loginForm)" #loginForm="ngForm" >
                                                                   <h2 class="login animate__animated animate__fadeInDown">Login</h2>
                                                                   <mat-form-field class="col-md-12 col-sm-12 col-md-offset-1">
                                                                       <input matInput type="email" name="email" ngModel #emailInput="ngModel" placeholder="E-mail" required email>
                                                                           <mat-error *ngIf="emailInput.invalid">Please Enter a Valid Email</mat-error>
                                                                   </mat-form-field>
-
                                                                   <mat-form-field class="col-md-12 col-sm-12 col-md-offset-1">
                                                                       <input matInput type="password" name="password" ngModel #passwordInput="ngModel" placeholder=" Enter your password " required>
                                                                        <mat-error *ngIf="passwordInput.invalid">Please Enter a content post</mat-error>
@@ -45,10 +38,7 @@
                                                               </form>
                                                       </div>
                                                   </div>
-
-
                                       </mat-card-content>
-
                                           <mat-card-content *ngIf="signup">
                                               <h2 class="login animate__animated animate__fadeInDown">SignUp</h2>
                                             <form (submit)="onSignup(signupForm)" class="form my-2 my-lg-0" #signupForm="ngForm">
@@ -61,20 +51,15 @@
                                               <mat-form-field class="col-md-12 col-sm-12 col-md-offset-1">
                                                 <input type="password" placeholder="Password" name="password" ngModel #passwordInput="ngModel" required matInput/>
                                               </mat-form-field>
-
                                               <button mat-raised-button mat-fab class="btn btn-primary btn-round ss animate__animated animate__rotateIn" fxLayout="center center"  type="submit()" >Submit</button>
-
                                             </form>
                                           </mat-card-content>
                                         </mat-card>
                               </div>
-
                       </div>
                       <br/><br/>
-                  </div>
-              </div>
-          </mat-card-content>
-
+                </div>
+            </div>
+        </mat-card-content>
   </div>
-
 </div>

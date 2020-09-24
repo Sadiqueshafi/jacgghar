@@ -11,7 +11,7 @@
 <div class="a"style="position: absolute; right: 0;" >
   <button mat-button [matMenuTriggerFor]="menu"><mat-icon>person_outline</mat-icon></button>
   <mat-menu #menu="matMenu">
-    <input type="button" mat-menu-item><mat-icon>exit_to_app</mat-icon>Sign out
+    <input type="button" mat-menu-item ><mat-icon (click)="onLogOut()">exit_to_app</mat-icon>Sign out
   </mat-menu>
 </div>
 <!--

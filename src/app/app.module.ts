@@ -23,7 +23,7 @@ import 'hammerjs';
 // import { SharedModule } from './shared/component/shared.module';
 import { DefaultModule } from './layout/default/default.module';
 import { UserComponent } from './user/user.component';
-import { SignupComponent } from './user/signup/signup.component';
+import { authGuard } from './shared/component/auth.guard';
 
 
 
@@ -38,7 +38,7 @@ import { SignupComponent } from './user/signup/signup.component';
     UrinlistComponent,
     BloodlistComponent,
     UserComponent,
-    SignupComponent,
+    // authGuard
 
     // SharedComponent
   ],

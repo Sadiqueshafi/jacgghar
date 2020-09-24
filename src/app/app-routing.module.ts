@@ -7,13 +7,14 @@ import { UrinComponent } from './urin/urin.component';
 import { DefaultComponent } from './layout/default/default.component';
 import { DashboardComponent } from './module/dashboard/dashboard.component';
 import { PostsComponent } from './module/posts/posts.component';
-import { SignupComponent } from './user/signup/signup.component';
 import { UserComponent } from './user/user.component';
+import { authGuard } from './shared/component/auth.guard';
 
 
 const routes: Routes = [
-  {path:'',component:DefaultComponent,children:[{
-    path:'',component:DashboardComponent
+  {path:'', redirectTo:'dashboard',pathMatch:'full'},
+  {path:'',component:DefaultComponent,canActivate:[authGuard],children:[{
+    path:'dashboard',component:DashboardComponent
   },{
     path:'posts',component:PostsComponent
   },
@@ -27,7 +28,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  exports: [RouterModule],
+  providers:[authGuard]
 })
 export class AppRoutingModule { }

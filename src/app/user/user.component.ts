@@ -37,7 +37,7 @@ onLogin(form:NgForm){
     return
   }
   // this.isLooding=true;
-  // this.authService.login(form.value.email,form.value.password);
+  this.authService.login(form.value.email,form.value.password);
   }
   onSignup(form:NgForm){
     console.log(form.value)
@@ -46,8 +46,6 @@ onLogin(form:NgForm){
     }
     this.authService.createUser(form.value.fullName,form.value.email,form.value.password);
     // this.isLooding=true;
-
-
   }
   // ngOnDestroy(){
   //   this._router.unsubscribe()

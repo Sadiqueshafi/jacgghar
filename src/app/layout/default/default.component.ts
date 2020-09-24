@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/shared/component/user.service';
 
 @Component({
   selector: 'app-default',
@@ -8,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class DefaultComponent implements OnInit {
   sidebarOpen =true;
   opened=true;
-
-  constructor() { }
+  userIsAuthonticated =false;
+  constructor(private authService:UserService) { }
+  private _router: Subscription;
 
   ngOnInit(): void {
-  }
+    this.userIsAuthonticated = this.authService.getIsAuth();
+
+      this._router =this.authService.getAuthStatusListner().subscribe(isAuthontication=>{
+        this.userIsAuthonticated=isAuthontication;
+  })
+}
   SidebarToggle($event){
     this.sidebarOpen = !this.sidebarOpen
   }
