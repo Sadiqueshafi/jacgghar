@@ -9,5 +9,17 @@ table{
   margin-top: 20px;
   margin-bottom: 20px;
 }
+@media print {
+  #printPageButton {
+      display :  none;
 
+  }
+  /* #Header, #Footer { display: none !important; } */
+}
+
+mat-card-title{
+  margin-top: 20px;
+  text-align: center;
+  color:blue;
+}
 

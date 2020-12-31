@@ -13,7 +13,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from '../../app-routing.module';
 import { RouterModule } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 // import { authGuard } from './auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatMenuModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule,AppRoutingModule,RouterModule
+    MatListModule,AppRoutingModule,RouterModule,
   ],
   exports:[
     HeaderComponent,

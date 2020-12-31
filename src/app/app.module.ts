@@ -17,6 +17,7 @@ import {ClusterAndSensitivityComponent} from './cluster-and-sensitivity/cluster-
 import { UrinlistComponent } from './urinlist/urinlist.component';
 import { BloodlistComponent } from './bloodlist/bloodlist.component';
 
+import { Globals } from "../app/global";
 import 'hammerjs';
 
 // import { SharedComponent } from './shared/shared/shared.component';
@@ -24,7 +25,11 @@ import 'hammerjs';
 import { DefaultModule } from './layout/default/default.module';
 import { UserComponent } from './user/user.component';
 import { authGuard } from './shared/component/auth.guard';
+import { AlertModule } from './shared/alert/alert.module';
+import { ToastrModule } from 'ngx-toastr';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
+// import { MatDialogContent, MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -38,6 +43,8 @@ import { authGuard } from './shared/component/auth.guard';
     UrinlistComponent,
     BloodlistComponent,
     UserComponent,
+    ChangepasswordComponent
+
     // authGuard
 
     // SharedComponent
@@ -53,10 +60,18 @@ import { authGuard } from './shared/component/auth.guard';
     MatSelectModule,
     NgxSelectModule,
     HttpClientModule,
-    // SharedModule,
-    DefaultModule
+    // MatDialogModule,
+    // MatDialogContent,
+    AlertModule,
+    DefaultModule,
+    ToastrModule.forRoot({
+      timeOut:1000,
+      progressBar:true,
+      progressAnimation:'increasing',
+      preventDuplicates:true
+    })
   ],
-  providers: [],
+  providers: [Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

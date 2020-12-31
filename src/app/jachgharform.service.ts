@@ -24,29 +24,26 @@ export class JachgharformService {
       'Content-Type': 'application/json'
     })
   }
-  bloodsetdata(){
-    // var patitentDetail =JSON.parse(localStorage.getItem('JhachgharData'));
-    // this.arr.push(patitentDetail);
-    // console.log(this.arr);
-    // this.r = patitentDetail.map(items=>{
 
-    // })
-
-  }
-
-  postData(person:BloodGrouping): Observable<any> {
-    const headers ={'content-type':'application.json'}
-    const body= JSON.stringify(person);
-    console.log(body);
-    // const url =  urlPrefix
-    return this.http.post(this.baseURL+'bloodgrouping',body,{'headers':headers}).pipe(
+  getData(urlPrefix: string, query: any): Observable<any> {
+    const url = this.baseURL + urlPrefix
+    return this.http.get(url).pipe(
       catchError(this.handleError)
     )
   }
 
-  getdata(): Observable<BloodGrouping[]> {
-    // const url = urlPrefix;
-    return this.http.get<BloodGrouping[]>(this.baseURL+'bloodgrouping');
+  getAllData(urlPrefix: string): Observable<any> {
+    const url = this.baseURL + urlPrefix
+    return this.http.get(url).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  postData(urlPrefix: string, query: any): Observable<any> {
+    const url = this.baseURL + urlPrefix;
+    return this.http.post(url,  query).pipe(
+      catchError(this.handleError)
+    )
   }
 
   delete(postId:string): Observable<any>{
@@ -55,8 +52,8 @@ export class JachgharformService {
 
   update(docker:any):Observable<void>{
   return this.http.put<void>('http://localhost:8080/gachgharform/' + docker.id,docker)
-
   }
+
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

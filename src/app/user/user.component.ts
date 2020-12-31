@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserService } from '../shared/component/user.service';
 
+import {ThemePalette} from '@angular/material/core';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -10,6 +11,7 @@ import { UserService } from '../shared/component/user.service';
   })
 export class UserComponent implements OnInit {
   showSuccessMessage :boolean;
+  color: ThemePalette = 'primary';
   login=true;
   signup=false;
   isLooding = false;
@@ -36,7 +38,7 @@ onLogin(form:NgForm){
   if (form.invalid){
     return
   }
-  // this.isLooding=true;
+  this.isLooding=true;
   this.authService.login(form.value.email,form.value.password);
   }
   onSignup(form:NgForm){
@@ -45,9 +47,6 @@ onLogin(form:NgForm){
       return;
     }
     this.authService.createUser(form.value.fullName,form.value.email,form.value.password);
-    // this.isLooding=true;
+    this.isLooding=true;
   }
-  // ngOnDestroy(){
-  //   this._router.unsubscribe()
-  // }
 }

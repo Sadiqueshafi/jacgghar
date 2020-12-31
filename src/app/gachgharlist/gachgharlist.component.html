@@ -1,37 +1,35 @@
 
-<div class="container all-detail" id="print">
+<!-- <div class="container all-detail" id="print"> -->
   <!-- <mat-card> -->
-    <mat-card>
+    <!-- <mat-card> -->
   <!-- <div class="table-responsive"> -->
-<div class="animate__animated animate__backInDown" style="text-align: center;"><h2><b>JachGhar List</b></h2></div>
-    <table class="table table-bordered tbl" *ngFor="let arr of s">
-      <thead>
-
+<!-- <div class="animate__animated animate__backInDown" style="text-align: center;"><h2><b>JachGhar List</b></h2></div> -->
+    <!-- <table class="table table-bordered tbl" *ngFor="let arr of s"> -->
+      <!-- <thead> -->
         <!-- *ngFor="let gachghar of gachgharlist; let id = index" -->
-        <tr>
+        <!-- <tr> -->
+          <!-- <th scope="col" class="animate__animated animate__backInDown" >Name of the Patient</th> -->
+            <!-- <td class="animate__animated animate__backInDown">{{arr.patientName}}</td> -->
+          <!-- <th scope="col" class="animate__animated animate__backInDown" >Age</th> -->
+            <!-- <td  class="animate__animated animate__backInDown">{{arr.age}}</td> -->
 
-          <th scope="col" class="animate__animated animate__backInDown" >Name of the Patient</th>
-            <td class="animate__animated animate__backInDown">{{arr.patientName}}</td>
-          <th scope="col" class="animate__animated animate__backInDown" >Age</th>
-            <td  class="animate__animated animate__backInDown">{{arr.age}}</td>
+          <!-- </tr> -->
+          <!-- <tr> -->
+            <!-- <th  class="animate__animated animate__backInDown" scope="col" >Sex</th> -->
+            <!-- <td  class="animate__animated animate__backInDown">{{arr.sex}}</td> -->
 
-          </tr>
-          <tr>
-            <th  class="animate__animated animate__backInDown" scope="col" >Sex</th>
-            <td  class="animate__animated animate__backInDown">{{arr.sex}}</td>
+          <!-- <th class="animate__animated animate__backInDown" scope="col" >PID</th> -->
+          <!-- <td  class="animate__animated animate__backInDown"></td> -->
+           <!-- </tr> -->
+        <!-- <tr> -->
+          <!-- <th  class="animate__animated animate__backInDown">Date:</th> -->
+          <!-- <td  class="animate__animated animate__backInDown">{{arr.date}}</td> -->
 
-          <th class="animate__animated animate__backInDown" scope="col" >PID</th>
-          <td  class="animate__animated animate__backInDown"></td>
-           </tr>
-        <tr>
-          <th  class="animate__animated animate__backInDown">Date:</th>
-          <td  class="animate__animated animate__backInDown">{{arr.date}}</td>
-
-          <th  class="animate__animated animate__backInDown" scope="col" >Bill No/ LRN</th>
+          <!-- <th  class="animate__animated animate__backInDown" scope="col" >Bill No/ LRN</th>
           <td  class="animate__animated animate__backInDown"colspan="3"></td>
-        </tr>
+        </tr> -->
 
-        <tr>
+        <!-- <tr>
           <th  class="animate__animated animate__backInDown" scope="col" >Recirived on</th>
           <td  class="animate__animated animate__backInDown"></td>
           <th scope="col" class="animate__animated animate__backInDown" >Refd. by Dr:-</th>
@@ -42,43 +40,137 @@
       <tbody >
         <tr>
     </tbody>
-  </table>
+  </table> -->
   <!-- for BloodGrouping -->
-  <h3><ul>Blood Details</ul></h3>
+  <!-- <h3><ul>Blood Details</ul></h3>
 <table  class="table table-bordered tbl">
   <thead >
     <tr *ngFor="let a of a|keyvalue">
       <th  class="animate__animated animate__backInDown">
 <b>{{a.value}}</b>
-      </th>
+      </th> -->
     <!-- </tr>
     <tr *ngFor="let a of s">
       <th >
 {{a}}
       </th>
     </tr> -->
-  </thead>
-</table>
+  <!-- </thead>
+</table> -->
 
 <!-- for urine Grouping -->
-<h3><ul>Urine Details</ul></h3>
+<!-- <h3><ul>Urine Details</ul></h3>
 <table  class="table table-bordered tbl">
   <thead >
     <tr *ngFor="let a of b|keyvalue">
       <th class="animate__animated animate__backInDown" >
 <b>{{a.value}}</b>
-      </th>
+      </th> -->
     <!-- </tr>
     <tr *ngFor="let a of s">
       <th >
 {{a}}
       </th>
     </tr> -->
+  <!-- </thead>
+</table> -->
+<!-- <button type="button" class="btn btn-success" id="printbtn" (click)='print()'>Print</button> -->
+
+<!-- </mat-card>
+</div> -->
+
+<div class="container">
+  <mat-card id="a">
+    <mat-card-title class="animate__animated animate__backInDown" >
+      JachGhar Report
+    </mat-card-title>
+    <div class="container">
+    <div class="table-responsive">
+      <!-- <div class="animate__animated animate__backInDown" style="text-align: center;"><h2><b>JachGhar List</b></h2></div> -->
+          <table class="table table-bordered tbl" *ngFor="let arr of s">
+            <thead>
+              <!-- *ngFor="let gachghar of gachgharlist; let id = index" -->
+              <tr>
+                <th scope="col" class="animate__animated animate__backInDown" >Name of the Patient</th>
+                  <td class="animate__animated animate__backInDown">{{arr.patientName}}</td>
+                <th scope="col" class="animate__animated animate__backInDown" >Age</th>
+                  <td  class="animate__animated animate__backInDown">{{arr.age}}</td>
+                </tr>
+                <tr>
+                  <th  class="animate__animated animate__backInDown" scope="col" >Sex</th>
+                   <td  class="animate__animated animate__backInDown">{{arr.sex}}</td>
+
+                <th class="animate__animated animate__backInDown" scope="col" >PID</th>
+                <td  class="animate__animated animate__backInDown"></td>
+                 <!-- </tr> -->
+                <tr>
+                <th  class="animate__animated animate__backInDown">Date:</th>
+                <td  class="animate__animated animate__backInDown">{{arr.date}}</td>
+
+                <th  class="animate__animated animate__backInDown" scope="col" >Bill No/ LRN</th>
+                <td  class="animate__animated animate__backInDown"colspan="3" *ngFor="let b of billing">{{b}}</td>
+              </tr>
+
+               <tr>
+                <th  class="animate__animated animate__backInDown" scope="col" >Recirived on</th>
+                <td  class="animate__animated animate__backInDown"></td>
+                <th scope="col" class="animate__animated animate__backInDown" >Refd. by Dr:-</th>
+                <td colspan="3" class="animate__animated animate__backInDown">{{arr.dr}}</td>
+              </tr>
+            </thead>
+            <tbody >
+              <tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="container">
+      <div class="table-responsive">
+        <mat-card-title class="animate__animated animate__backInDown" >
+          Blood Report
+        </mat-card-title>
+    <table  class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">INVESTIGATION HAEMATOLOGY</th>
+          <th scope="col">Result</th>
+          <th scope="col">Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blooddetail of a; let i=index">
+          <th scope="col" >{{blooddetail}}</th>
+          <th><input type="text"></th>
+          <th scope="col">{{arr[i]}}</th>
+          <!-- *ngFor="let reference of arr" {{reference}} -->
+        </tr>
+      </tbody>
+
+
+    </table></div></div>
+    <mat-card-title class="animate__animated animate__backInDown">
+      Urine Report
+    </mat-card-title>
+    <div class="container">
+      <div class="table-responsive">
+<table  class="table table-bordered tbl">
+  <thead>
+    <tr>
+      <th scope="col">INVESTIGATION HAEMATOLOGY</th>
+      <th scope="col">Result</th>
+      <th scope="col">Reference</th>
+    </tr>
   </thead>
-</table>
-<button type="button" class="btn btn-success" id="componentID" (click)='print()'>Print</button>
+  <tbody>
+    <tr *ngFor="let urinedetail of b; let i=index">
+      <th scope="col" >{{urinedetail}}</th>
+      <th><input type="text"></th>
+      <th>{{urinarr[i]}}</th>
+    </tr>
+  </tbody>
+  </table>
 
-</mat-card>
+</div></div>
+<button class="btn btn-info btn-lg ml-auto mr-4 example-ripple-container mat-elevation-z4" id="printPageButton"  (click)="print()"> print</button> </mat-card>
 </div>
-
 

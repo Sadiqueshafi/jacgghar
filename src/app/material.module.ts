@@ -8,9 +8,10 @@ import { from } from 'rxjs';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   imports: [
     MatToolbarModule,
@@ -20,10 +21,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatIconModule,
     MatRadioModule,
     MatTableModule,
-    MatDialogModule,
     MatTabsModule,
     MatButtonToggleModule,
-    // MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+
   ],
   exports: [
     MatToolbarModule,
@@ -33,11 +34,12 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatIconModule,
     MatInputModule,
     MatRadioModule,
-    MatDialogModule,
+
     MatTableModule,
     MatTabsModule,
     MatButtonToggleModule,
-    // MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+
   ]
 })
 export class MaterialModule { }

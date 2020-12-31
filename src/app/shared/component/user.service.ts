@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import {User}from './user.model';
 import { Router } from '@angular/router';
-import {environment} from '../../../environments/environment'
+import {environment} from '../../../environments/environment';
+import {ToastrService} from 'ngx-toastr'
 @Injectable({
   providedIn: 'root'
 })
@@ -16,16 +17,18 @@ export class UserService {
  private timerTocken : any;
  private userId:string;
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http:HttpClient,private router:Router,private toster: ToastrService) { }
   getAuthStatusListner(){
     return this.authStatusListner.asObservable();
   }
+
   createUser(fullName:string,email: string,password:string){
     const authData:User={fullName:fullName,email:email,password:password};
     this.http.post('http://localhost:3000/api/register',authData).subscribe(()=>{
      this.router.navigate['/login'];
-    res =>{
+    res => {
       this.showSuccessMessage =true;
+
       setTimeout(() => {
         this.showSuccessMessage =false,4000
       });
@@ -41,11 +44,11 @@ export class UserService {
   login(email:string,password:string) {
     const authData ={email:email,password:password};
     this.http.post<{token:string,expiresIn:number,userId:string}>("http://localhost:3000/api/login",authData)
-    .subscribe(response=>{
-      console.log(response)
+    .subscribe(response=> {
+      // console.log(response)
       const token =response.token
     this.token = token;
-    console.log(this.token)
+    // console.log(this.token)
     if(token){
       const expireinDuration = response.expiresIn;
       this.setAuthTime(expireinDuration)
@@ -53,12 +56,14 @@ export class UserService {
        this.authStatusListner.next(true);
        this.userId = response.userId
        const now =new Date();
-       const expirationDate =new Date(now.getTime()+expireinDuration* 1000)
+       const expirationDate =new Date(now.getTime()+ expireinDuration* 1000)
        this.saveAuthDate(token,expirationDate,this.userId)
-       this.router.navigate(['/dashboard'])
+       this.router.navigate(['/dashboard']);
+       this.toster.success("you are successfully login");
     }
     },error=>{
       this.authStatusListner.next(false);
+      this.toster.error("User not Match..");
     })
   }
   getToken(){
@@ -83,6 +88,7 @@ export class UserService {
     this.cleareAuthData();
     this.userId =null;
     clearTimeout(this.timerTocken)
+    this.toster.success("you are logout");
   }
 
   private setAuthTime(duration:number){
@@ -103,8 +109,8 @@ export class UserService {
     localStorage.setItem('expiration',expireinDate.toISOString());
     localStorage.setItem("userId",userId);
   }
-  autoAuthUser(){
 
+  autoAuthUser() {
     const authInformation = this.getAuthData();
     if(!authInformation){
       return
@@ -133,5 +139,4 @@ export class UserService {
       userId:userId
     }
   }
-
 }

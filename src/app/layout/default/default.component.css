@@ -46,3 +46,9 @@ mat-sidenav-content{
   color:"white"
   background-color="orange"
 }
+
+  @media print {
+    app-header  {
+      display: none;
+    }
+  }

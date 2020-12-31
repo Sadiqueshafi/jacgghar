@@ -2,32 +2,39 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button aria-hidden="false" mat-icon-button class="example-icon" (click)="toggleSidebar()"><mat-icon aria-hidden="false">menu</mat-icon></button>
-      <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" >menu</mat-icon> -->
       <span>App Logo</span>
 
-      <!-- <div fxFlex fxLayout="row" fxLayoutAlign="flex-end"> -->
-        <!-- <ul> -->
-        <!-- <li style="align-items: right; display: list-item;"> -->
-<div class="a"style="position: absolute; right: 0;" >
-  <button mat-button [matMenuTriggerFor]="menu"><mat-icon>person_outline</mat-icon></button>
-  <mat-menu #menu="matMenu">
-    <input type="button" mat-menu-item ><mat-icon (click)="onLogOut()">exit_to_app</mat-icon>Sign out
-  </mat-menu>
-</div>
-<!--
-        </li>
-      </ul> -->
-      <!-- </div> -->
-    </mat-toolbar-row>
+      <ul class="navbar-nav">
+        <li class="navbar-item dropdown header-language show collapse navbar-collapse justify-content-end">
+            {{globals.selectedYear}}
 
-<!--
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button> -->
+            <div class="dropdown-menu dropdown-menu-right dropHeight">
+                <a class="dropdown-item" href="#" onclick="return false;"
+                    (click)="getYear(globals.selectedYear = year)" *ngFor="let year of globals.years"
+                    (click)="globals.selectedYear=year">{{year}}</a>
+            </div>
+        </li>
+      </ul>
+
+      <div class="form-group">
+        <label for="Grouping" ></label>
+        <select id="grouping"(change)="getYear($event)" FormControlName="rhtype" class="form-control">
+          <option>Select Year</option>
+          <option [value]="year" *ngFor="let year of globals.years">
+            {{year}}
+          </option>
+        </select>
+      </div>
+
+<div class="a"style="position: absolute; right: 0;" >
+  <button class="a" mat-button [matMenuTriggerFor]="menu"><mat-icon>person_outline</mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button class="a" (click)="onLogOut()" mat-menu-item><mat-icon >exit_to_app</mat-icon>Sign out</button>
+  <a mat-list-item routerLinkActive="list-item-active" class="animate__animated animate__heartBeat" routerLink='/changepassword' routerLinkActive="active" > <button class="a" mat-menu-item><mat-icon>lock</mat-icon> Change Password</button></a>
+</mat-menu>
+
+
+</div>
+    </mat-toolbar-row>
   </mat-toolbar>
 

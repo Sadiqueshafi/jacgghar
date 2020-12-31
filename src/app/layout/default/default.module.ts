@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list'
 import { MatIconModule } from '@angular/material/icon';
 import { authGuard } from 'src/app/shared/component/auth.guard';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -24,7 +25,10 @@ import { authGuard } from 'src/app/shared/component/auth.guard';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
+
 
   ]
 })

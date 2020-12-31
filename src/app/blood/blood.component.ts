@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { BloodlistComponent } from '../bloodlist/bloodlist.component';
 import { JachgharformService } from '../jachgharform.service';
 import { BloodGrouping } from '../bloodlist/bloodgrouping';
+import { TosterService } from '../shared/alert/toster.service';
 @Component({
   selector: 'app-blood',
   templateUrl: './blood.component.html',
@@ -23,8 +24,13 @@ export class BloodComponent implements OnInit {
   Normal =['nothingnormal','nonormal'];
   Ra =['as','it','is'];
   baseURL: string = "http://localhost:3000/";
+
+  public studentsList: string;
   // bloodGrouping = new ();
-  constructor(private fb:FormBuilder,public dialog: MatDialog,private service:JachgharformService) { }
+  constructor(private fb:FormBuilder,
+    public dialog: MatDialog,
+    private service:JachgharformService,
+    private alertService: TosterService) { }
   // @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<BloodComponent>
   bloodgrouping = this.fb.group({
     grouping: ['',Validators.required],
@@ -44,37 +50,29 @@ export class BloodComponent implements OnInit {
   }
 
   onSubmit(){
-    // let myfunc =new BloodlistComponent()
+    var data =this.bloodgrouping.value;
     if(this.bloodgrouping.value !=""){
       localStorage.setItem('bloodgrouping',JSON.stringify(this.bloodgrouping.value));
       console.log('hy' +JSON.stringify(this.bloodgrouping.value));
-
     }
-    // this.service.postData(this.bloodgrouping.value).subscribe(res=>{
-
-        // console.log("data successfully added");
-        // myfunc.getbloodgrouping()/
-      // })
-
       localStorage.setItem('bloodgrouping',JSON.stringify(this.bloodgrouping.value));
-   console.log(JSON.stringify(this.bloodgrouping.value));
-  //  const dialogRef = this.dialog.open(BloodlistComponent, {
-  //   width: '600px',
-  // });
+      this.service.postData('api/blooddetail', data ).subscribe(
+        result => {
+          this.studentsList = result['data'];
+          this.alertService.success('Success!!')
+          // this.toaster.showSuccess( ")
+          // this.JachGhar.reset()
 
-  // dialogRef.afterClosed().subscribe(result => {
-  //   console.log('The dialog was closed');
-  //   // this.animal = result;
-  // });
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
 
-  }
-
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
+      }
   changegrouping(e){
     console.log(e.value);
-    this.grouping.setValue(e.target.value,{
+  this.grouping.setValue(e.target.value,{
       onlySelf:true
     })
   }

@@ -2,6 +2,8 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { BloodlistComponent } from '../bloodlist/bloodlist.component';
+import { JachgharformService } from '../jachgharform.service';
+import { TosterService } from '../shared/alert/toster.service';
 import { UrinlistComponent } from '../urinlist/urinlist.component';
 @Component({
   selector: 'app-urin',
@@ -24,7 +26,12 @@ export class UrinComponent implements OnInit {
   BilePigment = ['hello','world'];
   Urobilnogen=['genteral','answer'];
   TestedByUristicMethod=['hello','sadique'];
-  constructor(private fb:FormBuilder,public dialog: MatDialog) { }
+  public studentsList: string;
+  constructor(private fb:FormBuilder,
+    public dialog: MatDialog,
+    private service :JachgharformService,
+    private alertService:TosterService
+    ) { }
   // @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<UrinComponent>
   urinegrouping = this.fb.group({
     quantity: ['',Validators.required],
@@ -42,29 +49,24 @@ export class UrinComponent implements OnInit {
     testedbyuristicmethod:['',Validators.required]
   });
 
-  ngOnInit(): void {
-    // console.log('hello'+this.urinegrouping.value)
-    // localStorage.setItem('urinegrouping',JSON.stringify(this.urinegrouping.value));
-  }
-  // onSubmit(){
+  ngOnInit(): void { }
+
     onSubmit(){
-      // console.log('hello'+JSON.stringify(this.urinegrouping.value))
+      var data = this.urinegrouping.value
       if(this.urinegrouping.value !=""){
         localStorage.setItem('urinegrouping',JSON.stringify(this.urinegrouping.value));
-        // console.log('hy' +JSON.stringify(this.urinegrouping.value));
 
       }
      localStorage.setItem('urinegrouping',JSON.stringify(this.urinegrouping.value));
-    //  console.log(JSON.stringify(this.urinegrouping.value));
-    //  const dialogRef = this.dialog.open(BloodlistComponent, {
-    //   width: '600px',
-    // });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   // this.animal = result;
-    // });
-
+      this.service.postData('api/urinedetail', data ).subscribe(
+        result => {
+          this.studentsList = result['data'];
+          this.alertService.success('Success!!')
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
     }
 
   quantitys(e){

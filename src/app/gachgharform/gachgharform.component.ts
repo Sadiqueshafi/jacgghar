@@ -7,6 +7,9 @@ import {BloodComponent} from '../blood/blood.component';
 import {UrinComponent} from '../urin/urin.component'
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { TosterService } from '../shared/alert/toster.service';
+
 @Component({
   selector: 'app-gachgharform',
   templateUrl: './gachgharform.component.html',
@@ -15,13 +18,22 @@ import { Router } from '@angular/router';
 })
 export class GachgharformComponent implements OnInit {
   public Urine= true;
+  hidebutton = false;
   local =[]
   public Sex = [ 'Male','Female'];
   JachGhar: FormGroup;
   submitted = false;
+  public studentsList: string;
+  options = {
+    autoClose: false,
+    keepAfterRouteChange: false
+};
 
-
-  constructor(private fb:FormBuilder,private jacgharservice:JachgharformService,public dialog: MatDialog, private router: Router) { }
+  constructor(private fb:FormBuilder,
+    private jacgharservice:JachgharformService,
+    public dialog: MatDialog,
+    private router: Router,
+    private alertService: TosterService) { }
 
 
   ngOnInit(): void {
@@ -31,7 +43,6 @@ export class GachgharformComponent implements OnInit {
       age: ['', Validators.required],
       sex: ['', [Validators.required]],
       dr: ['', Validators.required],
-      DateofReport: ['', Validators.required],
     });
 
   }
@@ -39,9 +50,6 @@ export class GachgharformComponent implements OnInit {
     return this.JachGhar.controls;
   }
 
- quantitys(){
-
- }
 
  changeSex(e){
   console.log(e.value);
@@ -49,13 +57,32 @@ export class GachgharformComponent implements OnInit {
     onlySelf:true
   })
 }
+
 get sex(){
   return this.JachGhar.get('sex');
 }
 
   onSubmit(){
-    localStorage.setItem('JhachgharData',JSON.stringify(this.JachGhar.value));
 
+      var minm = 10000;
+      var maxm = 99999;
+      var billingno = Math.floor(Math.random() * (maxm - minm + 1)) + minm;
+
+    var data = [this.JachGhar.value + billingno] ;
+    localStorage.setItem('JhachgharData',JSON.stringify(this.JachGhar.value+billingno));
+    this.jacgharservice.postData('api/patientdetail', data ).subscribe(
+      result => {
+        this.studentsList = result['data'];
+        this.alertService.success('Success!!')
+        // this.toaster.showSuccess( ")
+        // this.JachGhar.reset()
+        this.hidebutton= true;
+        this.submitted =false
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
     // this.jacgharservice.postData("http://localhost:8080/gachgharform/",this.JachGhar.value).subscribe(res=>{
     //   console.log("data successfully added")
     // })
@@ -82,7 +109,18 @@ get sex(){
       // this.animal = result;
     });
   }
+
+  good(){
+    var jach = JSON.parse(localStorage.getItem('JhachgharData'));
+    var obj = JSON.parse(localStorage.getItem('bloodgrouping'));
+    var urine = JSON.parse(localStorage.getItem('urinegrouping'));
+    this.local.push(jach);
+    this.local.push(obj);
+    this.local.push(urine);
+  }
+
   finalSubmit(){
+    this.good()
     this.router.navigate(['/jachgharlist']);
 
   }
