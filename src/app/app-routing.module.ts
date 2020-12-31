@@ -10,7 +10,7 @@ import { PostsComponent } from './module/posts/posts.component';
 import { UserComponent } from './user/user.component';
 import { authGuard } from './shared/component/auth.guard';
 import { BloodlistComponent } from './bloodlist/bloodlist.component';
-import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ChangepasswordComponent } from '../app/changepassword/changepassword.component';
 
 
 const routes: Routes = [

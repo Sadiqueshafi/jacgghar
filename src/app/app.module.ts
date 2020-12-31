@@ -25,7 +25,7 @@ import 'hammerjs';
 import { DefaultModule } from './layout/default/default.module';
 import { UserComponent } from './user/user.component';
 import { authGuard } from './shared/component/auth.guard';
-import { AlertModule } from './shared/alert/alert.module';
+// import { AlertModule } from './shared/alert/alert.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
@@ -62,7 +62,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     HttpClientModule,
     // MatDialogModule,
     // MatDialogContent,
-    AlertModule,
+    // AlertModule,
     DefaultModule,
     ToastrModule.forRoot({
       timeOut:1000,

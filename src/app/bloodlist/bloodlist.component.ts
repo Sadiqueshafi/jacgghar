@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
-// import { TosterService } from '../shared/alert/toster.service';
+
 
 @Component({
   selector: 'app-bloodlist',

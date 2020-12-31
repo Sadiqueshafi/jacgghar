@@ -3,7 +3,7 @@ import { FormBuilder,Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { BloodlistComponent } from '../bloodlist/bloodlist.component';
 import { JachgharformService } from '../jachgharform.service';
-import { TosterService } from '../shared/alert/toster.service';
+
 import { UrinlistComponent } from '../urinlist/urinlist.component';
 @Component({
   selector: 'app-urin',
@@ -30,7 +30,7 @@ export class UrinComponent implements OnInit {
   constructor(private fb:FormBuilder,
     public dialog: MatDialog,
     private service :JachgharformService,
-    private alertService:TosterService
+
     ) { }
   // @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<UrinComponent>
   urinegrouping = this.fb.group({
@@ -61,7 +61,7 @@ export class UrinComponent implements OnInit {
       this.service.postData('api/urinedetail', data ).subscribe(
         result => {
           this.studentsList = result['data'];
-          this.alertService.success('Success!!')
+
         },
         (error) => {
           console.log(error);
