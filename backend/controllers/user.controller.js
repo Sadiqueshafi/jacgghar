@@ -11,6 +11,7 @@ var responseUtil = require('../utils/responseUtil')
 
 exports.getDetails= (req,res,next)=>{
   const user =User.find();
+  console.log(user)
       user.then(document =>{
       res.status(200).json({
       message:'urineDetail message fetch successfully',

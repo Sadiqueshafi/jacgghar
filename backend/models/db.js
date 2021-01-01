@@ -1,7 +1,10 @@
-const MongoClient = require('mongodb').MongoClient;
-const mongoose =require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
+const mongoose =require('mongoose');
+
 require('dotenv').config();
-mongoose.connect( process.env.MONGOODB_URL,{ useNewUrlParser: true }, (err)=>{
+require('./user.model')
+
+mongoose.connect( "mongodb://localhost/mydb",{ useNewUrlParser: true }, (err)=>{
   // console.log(process.env.MONGOODB_URL)
 
     if(!err){
@@ -34,9 +37,8 @@ mongoose.connect( process.env.MONGOODB_URL,{ useNewUrlParser: true }, (err)=>{
 // mongoose.connection.on("conncted",()=>{
 //   console.log("connection successfully")
 // })
+module.exports = mongoose;
 
-module.exports = MongoClient;
-require('./user.model')
 
 
 

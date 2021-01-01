@@ -1,11 +1,11 @@
 {
   "development":{
     "PORT":3000,
-    "MONGOODB_URL":"mongodb://localhost/jachghardetail"
+    "MONGOODB_URL":"mongodb://localhost:27017/as"
   },
   "production":{
     "PORT":80,
-    "MONGOODB_URL":"mongodb://localhost/jachghardetail"
+    "MONGOODB_URL":"mongodb://localhost:27017/as"
   }
 }
 
