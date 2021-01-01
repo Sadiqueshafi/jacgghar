@@ -4,7 +4,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { BloodlistComponent } from '../bloodlist/bloodlist.component';
 import { JachgharformService } from '../jachgharform.service';
 import { BloodGrouping } from '../bloodlist/bloodgrouping';
-import { TosterService } from '../shared/alert/toster.service';
 @Component({
   selector: 'app-blood',
   templateUrl: './blood.component.html',
@@ -29,8 +28,8 @@ export class BloodComponent implements OnInit {
   // bloodGrouping = new ();
   constructor(private fb:FormBuilder,
     public dialog: MatDialog,
-    private service:JachgharformService,
-    private alertService: TosterService) { }
+    private service:JachgharformService
+   ) { }
   // @Inject(MAT_DIALOG_DATA) public dialogRef: MatDialogRef<BloodComponent>
   bloodgrouping = this.fb.group({
     grouping: ['',Validators.required],
@@ -59,9 +58,7 @@ export class BloodComponent implements OnInit {
       this.service.postData('api/blooddetail', data ).subscribe(
         result => {
           this.studentsList = result['data'];
-          this.alertService.success('Success!!')
-          // this.toaster.showSuccess( ")
-          // this.JachGhar.reset()
+
 
         },
         (error) => {

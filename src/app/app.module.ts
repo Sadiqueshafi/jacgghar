@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -16,10 +17,11 @@ import { UrinComponent } from './urin/urin.component';
 import {ClusterAndSensitivityComponent} from './cluster-and-sensitivity/cluster-and-sensitivity.component';
 import { UrinlistComponent } from './urinlist/urinlist.component';
 import { BloodlistComponent } from './bloodlist/bloodlist.component';
-
+import { ChangepasswordComponent } from '../app/changepassword/changepassword.component';
+import {SelectedYearService} from './selected-year.service'
 import { Globals } from "../app/global";
 import 'hammerjs';
-
+import { MatCardModule } from '@angular/material';
 // import { SharedComponent } from './shared/shared/shared.component';
 // import { SharedModule } from './shared/component/shared.module';
 import { DefaultModule } from './layout/default/default.module';
@@ -27,7 +29,6 @@ import { UserComponent } from './user/user.component';
 import { authGuard } from './shared/component/auth.guard';
 // import { AlertModule } from './shared/alert/alert.module';
 import { ToastrModule } from 'ngx-toastr';
-import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 // import { MatDialogContent, MatDialogModule} from '@angular/material/dialog';
 
@@ -35,6 +36,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 @NgModule({
   declarations: [
     AppComponent,
+
     GachgharformComponent,
     GachgharlistComponent,
     BloodComponent,
@@ -42,9 +44,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     ClusterAndSensitivityComponent,
     UrinlistComponent,
     BloodlistComponent,
-    UserComponent,
-    ChangepasswordComponent
-
+    UserComponent
     // authGuard
 
     // SharedComponent
@@ -54,12 +54,14 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     AppRoutingModule,
     MaterialModule,
     FormsModule,
+    MatCardModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatSelectModule,
     NgxSelectModule,
     HttpClientModule,
+    
     // MatDialogModule,
     // MatDialogContent,
     // AlertModule,
@@ -71,7 +73,8 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
       preventDuplicates:true
     })
   ],
-  providers: [Globals],
+  providers: [Globals,
+SelectedYearService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

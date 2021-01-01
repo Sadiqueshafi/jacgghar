@@ -8,7 +8,6 @@ import {UrinComponent} from '../urin/urin.component'
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Router } from '@angular/router';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { TosterService } from '../shared/alert/toster.service';
 
 @Component({
   selector: 'app-gachgharform',
@@ -32,8 +31,7 @@ export class GachgharformComponent implements OnInit {
   constructor(private fb:FormBuilder,
     private jacgharservice:JachgharformService,
     public dialog: MatDialog,
-    private router: Router,
-    private alertService: TosterService) { }
+    private router: Router) { }
 
 
   ngOnInit(): void {
@@ -73,7 +71,7 @@ get sex(){
     this.jacgharservice.postData('api/patientdetail', data ).subscribe(
       result => {
         this.studentsList = result['data'];
-        this.alertService.success('Success!!')
+
         // this.toaster.showSuccess( ")
         // this.JachGhar.reset()
         this.hidebutton= true;
