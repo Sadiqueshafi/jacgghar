@@ -17,11 +17,11 @@ import { UrinComponent } from './urin/urin.component';
 import {ClusterAndSensitivityComponent} from './cluster-and-sensitivity/cluster-and-sensitivity.component';
 import { UrinlistComponent } from './urinlist/urinlist.component';
 import { BloodlistComponent } from './bloodlist/bloodlist.component';
-import { ChangepasswordComponent } from '../app/changepassword/changepassword.component';
-import {SelectedYearService} from './selected-year.service'
-import { Globals } from "../app/global";
+import {ChangepasswordComponent} from '../app/changepassword/changepassword.component'
+import {SelectedYearService} from '../app/selected-year.service'
+import {Globals} from '../app/global'
 import 'hammerjs';
-import { MatCardModule } from '@angular/material';
+// import { MatCardModule } from '@angular/material';
 // import { SharedComponent } from './shared/shared/shared.component';
 // import { SharedModule } from './shared/component/shared.module';
 import { DefaultModule } from './layout/default/default.module';
@@ -36,7 +36,6 @@ import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
-
     GachgharformComponent,
     GachgharlistComponent,
     BloodComponent,
@@ -44,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
     ClusterAndSensitivityComponent,
     UrinlistComponent,
     BloodlistComponent,
+    ChangepasswordComponent,
     UserComponent
     // authGuard
 
@@ -54,14 +54,14 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     MaterialModule,
     FormsModule,
-    MatCardModule,
+    // MatCardModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatSelectModule,
     NgxSelectModule,
     HttpClientModule,
-    
+
     // MatDialogModule,
     // MatDialogContent,
     // AlertModule,
@@ -73,8 +73,7 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates:true
     })
   ],
-  providers: [Globals,
-SelectedYearService],
+  providers: [Globals,SelectedYearService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

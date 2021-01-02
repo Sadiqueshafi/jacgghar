@@ -34,7 +34,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatIconModule,
     MatInputModule,
     MatRadioModule,
-
     MatTableModule,
     MatTabsModule,
     MatButtonToggleModule,
