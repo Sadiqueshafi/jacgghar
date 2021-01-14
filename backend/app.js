@@ -7,8 +7,8 @@ const bodyParser =require('body-parser');
 const rtsIndex = require('./routes/index');
 const patientdetail = require('./routes/patientdetail');
 const blooddetail =require('./routes/blooddetail');
-const urinedetail =require('./routes/urinedetails');
 const alldata = require("./routes/jachghardetail");
+const urinedetail =require('./routes/urinedetails');
 const restpassword =require("./routes/restpassword");
 
 app.use(bodyParser.json());

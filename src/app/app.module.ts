@@ -29,7 +29,7 @@ import { UserComponent } from './user/user.component';
 import { authGuard } from './shared/component/auth.guard';
 // import { AlertModule } from './shared/alert/alert.module';
 import { ToastrModule } from 'ngx-toastr';
-
+import {DialogElementsExampleDialog} from '../app/gachgharlist/gachgharlist.component'
 // import { MatDialogContent, MatDialogModule} from '@angular/material/dialog';
 
 
@@ -44,7 +44,8 @@ import { ToastrModule } from 'ngx-toastr';
     UrinlistComponent,
     BloodlistComponent,
     ChangepasswordComponent,
-    UserComponent
+    UserComponent,
+    DialogElementsExampleDialog
     // authGuard
 
     // SharedComponent
@@ -61,7 +62,6 @@ import { ToastrModule } from 'ngx-toastr';
     MatSelectModule,
     NgxSelectModule,
     HttpClientModule,
-
     // MatDialogModule,
     // MatDialogContent,
     // AlertModule,

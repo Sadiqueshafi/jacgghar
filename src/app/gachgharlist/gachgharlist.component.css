@@ -10,10 +10,14 @@ table{
   margin-bottom: 20px;
 }
 @media print {
-  #printPageButton {
-      display :  none;
+  body *{
+    visibility: hidden;
+  }
+  .print-container, .print-container * {
+      visibility: visible;
 
   }
+  .print-container{position: absolute;left: 0px;top: 0px;}
   /* #Header, #Footer { display: none !important; } */
 }
 
@@ -22,4 +26,27 @@ mat-card-title{
   text-align: center;
   color:blue;
 }
+.button{
+display: flex;
+list-style-type: none;
+padding: 0;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
+.button li{
+  margin: 15px;
+  width: 85px;
+}
+.button .search{
+  background-color: transparent;
+  border: none;
+  color: blue;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+.button .search:hover{
 
+  color: rgb(119, 119, 233);
+
+}

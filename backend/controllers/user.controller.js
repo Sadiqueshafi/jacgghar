@@ -54,7 +54,7 @@ var user = new User();
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "my.smtp.host",
+    host: "smtp.gmail.com",
     port: 465,
     secure: true, // use TLS
     auth: {

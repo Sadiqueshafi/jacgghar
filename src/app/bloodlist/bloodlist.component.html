@@ -6,9 +6,9 @@
 
         <form class="form" [formGroup]="JachGhar" (ngSubmit)="onSubmit()">
           <div class="card-body">
-            <div class="form-group">
+            <!-- <div class="form-group">
               <input type="hidden" class="form-control" formControlName="ref" id="ref"  value=""  required>
-            </div>
+            </div> -->
             <div class="form-group">
               <div class="row animate__backInRight">
                 <div class="input-group col-md-2 col-xl-2 col-sm-12 " >
@@ -20,7 +20,7 @@
               </div>
             </div>
 
-          <div class="form-group" [ngClass]="{'has-error':JachGhar.get('patientName').errors && (JachGhar.get('patientName').touched ||JachGhar.get('patientName').dirty) }">
+          <div class="form-group" [ngClass]="{'has-error': JachGhar.get('patientName').errors && (JachGhar.get('patientName').touched ||JachGhar.get('patientName').dirty) }">
             <label for="patientName">Name of the Patient :- </label>
             <input type="text" class="form-control" id="patientName" formControlName="patientName" name="patientName" aria-describedby="nameHelp" >
             <span class="help-block" *ngIf="JachGhar.get('patientName').errors && (JachGhar.get('patientName').touched ||JachGhar.get('patientName').dirty)">

@@ -46,9 +46,9 @@ export class BloodlistComponent implements OnInit {
   constructor(private service:JachgharformService,private fb:FormBuilder,private toster: ToastrService,private router:Router) {}
 
   ngOnInit(): void {
-    var as = this.ref()
+    // var as = this.ref()
     this.JachGhar = this.fb.group({
-      ref: as,
+      // ref: as,
       date: ['', Validators.required],
       patientName: ['', Validators.required],
       age: ['', Validators.required],
@@ -85,14 +85,14 @@ export class BloodlistComponent implements OnInit {
   console.log(this.good);
 }
 
-  ref(){
-    // this.JachGhar.get('ref')
-    var minm = 10000;
-    var maxm = 99999;
-    this.billNo = (document.getElementById('ref') as HTMLTextAreaElement).value
-     this.billNo = Math.floor(Math.random() * (maxm - minm + 1)) + minm;
-     console.log(this.billNo)
-  }
+  // ref(){
+  //   // this.JachGhar.get('ref')
+  //   var minm = 10000;
+  //   var maxm = 99999;
+  //   this.billNo = (document.getElementById('ref') as HTMLTextAreaElement).value
+  //    this.billNo = Math.floor(Math.random() * (maxm - minm + 1)) + minm;
+  //    console.log(this.billNo)
+  // }
 
 
   onSubmit() {
@@ -111,9 +111,9 @@ export class BloodlistComponent implements OnInit {
     // console.log(a)
     // console.log(this.finalObjet)
 
-    this.service.postData('api/alldetails',  data).subscribe(
+    this.service.postData('api/alldetails',  this.JachGhar.value).subscribe(
       result => {
-        // this.studentsList = result['data'];
+        this.studentsList = result['data'];
         this.toster.success('Your Data Added Successfully!!')
         this.router.navigate(['/jachgharlist']);
       },

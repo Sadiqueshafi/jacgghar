@@ -4,7 +4,7 @@ const mongoose =require('mongoose');
 require('dotenv').config();
 require('./user.model')
 
-mongoose.connect( "mongodb://localhost/mydb",{ useNewUrlParser: true }, (err)=>{
+mongoose.connect( 'mongodb://localhost:27017/jachghardetail',{ useNewUrlParser: true }, (err)=>{
   // console.log(process.env.MONGOODB_URL)
 
     if(!err){
