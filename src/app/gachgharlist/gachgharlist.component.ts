@@ -5,6 +5,7 @@ import{BloodGrouping}from '../../app/bloodlist/bloodgrouping';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
+
 // import * as jspdf from 'jspdf';
 // import * as  html2canvas from 'html2canvas'
 // import { element } from 'protractor';
@@ -60,15 +61,29 @@ for (var key in obj.urine) {
 }
 
   }
-  print(){
-    // window.print();
+  print(e){
+
+    const printContents = document.getElementById(e).innerHTML;
+
+  const WindowObject = window.open('','PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes'
+  );
+  const htmlData = `<html><body>${printContents}</body></html>`;
+
+  WindowObject.document.writeln(htmlData);
+  WindowObject.document.close();
+  WindowObject.focus();
+  setTimeout(() => {
+    WindowObject.close();
+  }, 0.5);
   }
-  abc(){
+  myFunction() {
+    var printButton = document.getElementById("printpagebutton");
+    printButton.style.visibility = 'hidden';
+    printButton.style.visibility = 'visible';
 
   }
-
-
      downloadPDF(){
+
       // const dock =new jspdf();
       // dock.text('some text ',10,10);
       // dock.save('text.pdf')

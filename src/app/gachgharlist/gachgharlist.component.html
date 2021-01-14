@@ -79,8 +79,8 @@
 <!-- </mat-card>
 </div> -->
 
-<div class="container"  >
-  <mat-card   id="htmlData" #htmlData>
+<div class="container" id="print-section" >
+  <mat-card >
     <mat-card-title class="animate__animated animate__backInDown print-container" >
       JachGhar Report
     </mat-card-title>
@@ -177,13 +177,13 @@
 
   <ul class="button">
     <li>
-      <button class="btn btn-primary btn-md "   onclick="window.print()"> print</button>
+      <button class="btn btn-primary btn-md" id="printPageButton" [useExistingCss]="true" printSectionId="print-section" ngxPrint (click)="myFunction()" >print</button>
     </li>
     <li>
-      <button class="btn btn-primary btn-md " id="pdf"  (click)="downloadPDF()"> downloadPDF</button>
+      <button class="btn btn-primary btn-md " id="printPageButton"  (click)="downloadPDF()"> downloadPDF</button>
     </li>
     <li>
-      <button class="search" (click)="openDialog()"><mat-icon aria-hidden="false" aria-label="Example share icon" >share</mat-icon></button>
+      <button class="search" id="printPageButton" (click)="openDialog()"><mat-icon aria-hidden="false" aria-label="Example share icon" >share</mat-icon></button>
     </li>
   </ul>
 

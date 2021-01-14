@@ -9,16 +9,11 @@ table{
   margin-top: 20px;
   margin-bottom: 20px;
 }
-@media print {
-  body *{
-    visibility: hidden;
-  }
-  .print-container, .print-container * {
-      visibility: visible;
 
+@media print {
+  #printPageButton {
+    display: none;
   }
-  .print-container{position: absolute;left: 0px;top: 0px;}
-  /* #Header, #Footer { display: none !important; } */
 }
 
 mat-card-title{
@@ -45,8 +40,7 @@ align-items: center;
   font-size: 1.5rem;
   margin-left: 10px;
 }
+
 .button .search:hover{
-
   color: rgb(119, 119, 233);
-
 }

@@ -31,7 +31,7 @@ import { authGuard } from './shared/component/auth.guard';
 import { ToastrModule } from 'ngx-toastr';
 import {DialogElementsExampleDialog} from '../app/gachgharlist/gachgharlist.component'
 // import { MatDialogContent, MatDialogModule} from '@angular/material/dialog';
-
+import {NgxPrintModule} from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import {DialogElementsExampleDialog} from '../app/gachgharlist/gachgharlist.comp
     AppRoutingModule,
     MaterialModule,
     FormsModule,
+    NgxPrintModule,
     // MatCardModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
