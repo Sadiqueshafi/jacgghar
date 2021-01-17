@@ -6,21 +6,19 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 
-// import * as jspdf from 'jspdf';
-// import * as  html2canvas from 'html2canvas'
-// import { element } from 'protractor';
 @Component({
   selector: 'app-gachgharlist',
   templateUrl: './gachgharlist.component.html',
   styleUrls: ['./gachgharlist.component.css']
 })
 export class GachgharlistComponent implements OnInit {
-  @ViewChild('htmlData') htmlData:ElementRef;
+  @ViewChild('content') content:ElementRef;
  public hello=false;
   public a= [];
   public b= [];
   public arr = [];
   public urinarr =[]
+  public billingNo=[];
   public s = new Array();
   public billing = new Array();
   people:BloodGrouping[];
@@ -29,10 +27,12 @@ export class GachgharlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.jacgharservice.getAllData('api/alldetails').subscribe(result=>{
-      console.log(result.jachGharAllData)
+      // console.log(result.jachGharAllData)
       // console.log(result.jachGharAllData[-1].length)
-      console.log(result.jachGharAllData[result.jachGharAllData.length-1])
-
+      // console.log(result.jachGharAllData[result.jachGharAllData.length-1])
+      // console.log()
+      var rendomNo = result.jachGharAllData[result.jachGharAllData.length-1].billingNo
+      this.billingNo.push(rendomNo)
     })
     // var patitentDetail =JSON.parse(localStorage.getItem('JhachgharData'));
     // this.s.push(patitentDetail);
@@ -82,11 +82,8 @@ for (var key in obj.urine) {
     printButton.style.visibility = 'visible';
 
   }
-     downloadPDF(){
+public downloadPDF():void{
 
-      // const dock =new jspdf();
-      // dock.text('some text ',10,10);
-      // dock.save('text.pdf')
     }
     openDialog():void {
 
