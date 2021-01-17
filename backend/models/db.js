@@ -4,7 +4,7 @@ const mongoose =require('mongoose');
 require('dotenv').config();
 require('./user.model')
 
-mongoose.connect( 'mongodb://localhost:27017/jachghardetail',{ useNewUrlParser: true }, (err)=>{
+mongoose.connect( 'mongodb+srv://jachghar:jachghar@cluster0.l08tx.mongodb.net/datajachghar?retryWrites=true&w=majority',{ useNewUrlParser: true }, (err)=>{
   // console.log(process.env.MONGOODB_URL)
 
     if(!err){
