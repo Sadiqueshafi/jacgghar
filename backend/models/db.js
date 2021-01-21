@@ -1,19 +1,10 @@
 // const MongoClient = require('mongodb').MongoClient;
-const mongoose =require('mongoose');
+// const mongoose =require('mongoose');
 
-require('dotenv').config();
-require('./user.model')
+// require('dotenv').config();
+// require('./user.model')
 
-mongoose.connect( 'mongodb+srv://jachghar:jachghar@cluster0.l08tx.mongodb.net/datajachghar?retryWrites=true&w=majority',{ useNewUrlParser: true }, (err)=>{
-  // console.log(process.env.MONGOODB_URL)
 
-    if(!err){
-        console.log('Mongdb connect successfully');
-    }
-    else{
-        console.log('error in database collections'+JSON.stringify(err,undefined,2))
-    }
-})
 
 // const uri = "mongodb+srv://jachghar:jachghar@cluster0.gc3sf.mongodb.net/asa?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -37,7 +28,7 @@ mongoose.connect( 'mongodb+srv://jachghar:jachghar@cluster0.l08tx.mongodb.net/da
 // mongoose.connection.on("conncted",()=>{
 //   console.log("connection successfully")
 // })
-module.exports = mongoose;
+// module.exports = mongoose;
 
 
 

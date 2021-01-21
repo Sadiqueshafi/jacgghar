@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
 
       this.patientalldata.getAllData('api/register').subscribe(result=>{
         const useremail = Object.getOwnPropertyNames(result.User);
+        console.log(useremail)
         this.useremail =useremail.length
         for(var i=0;i<result.User.length; i++){
         this.emailuser.push(result.User[i])

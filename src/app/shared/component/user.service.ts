@@ -25,9 +25,10 @@ export class UserService {
   createUser(fullName:string,email: string,password:string){
     const authData:User={fullName:fullName,email:email,password:password};
     this.http.post('http://localhost:3000/api/register',authData).subscribe(()=>{
-     this.router.navigate['/login'];
+     this.toster.success("you are signup now you can login you page ...");
+     this.showSuccessMessage =true;
+     this.router.navigate(['/signup']);
     res => {
-      this.showSuccessMessage =true;
 
       setTimeout(() => {
         this.showSuccessMessage =false,4000
