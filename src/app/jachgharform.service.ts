@@ -47,11 +47,11 @@ export class JachgharformService {
   }
 
   delete(postId:string): Observable<any>{
-    return this.http.delete('http://localhost:8080/gachgharform/'+ postId );
+    return this.http.delete('gachgharform/'+ postId );
   }
-
+//i cut it this from delete or update http://localhost:8080/
   update(docker:any):Observable<void>{
-  return this.http.put<void>('http://localhost:8080/gachgharform/' + docker.id,docker)
+  return this.http.put<void>('gachgharform/' + docker.id,docker)
   }
 
   handleError(error) {
