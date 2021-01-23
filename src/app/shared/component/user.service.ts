@@ -24,7 +24,7 @@ export class UserService {
 
   createUser(fullName:string,email: string,password:string){
     const authData:User={fullName:fullName,email:email,password:password};
-    this.http.post('api/register',authData).subscribe(()=>{
+    this.http.post(' http://localhost:3000/api/register',authData).subscribe(()=>{
      this.toster.success("you are signup now you can login you page ...");
      this.showSuccessMessage =true;
      this.router.navigate(['/signup']);
@@ -44,7 +44,7 @@ export class UserService {
 // icut it this from login or signup http://localhost:3000/
   login(email:string,password:string) {
     const authData ={email:email,password:password};
-    this.http.post<{token:string,expiresIn:number,userId:string}>("api/login",authData)
+    this.http.post<{token:string,expiresIn:number,userId:string}>(" http://localhost:3000/api/login",authData)
     .subscribe(response=> {
       // console.log(response)
       const token =response.token
