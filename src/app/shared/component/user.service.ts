@@ -9,6 +9,7 @@ import {ToastrService} from 'ngx-toastr'
   providedIn: 'root'
 })
 export class UserService {
+  private contactsUrl = '/api/login';
  private authStatusListner = new Subject<boolean>();
  showSuccessMessage:boolean;
  servererrorMessage:string;
@@ -44,7 +45,7 @@ export class UserService {
 // icut it this from login or signup http://localhost:3000/
   login(email:string,password:string) {
     const authData ={email:email,password:password};
-    this.http.post<{token:string,expiresIn:number,userId:string}>("api/login",authData)
+    this.http.post<{token:string,expiresIn:number,userId:string}>(this.contactsUrl,authData)
     .subscribe(response=> {
       // console.log(response)
       const token =response.token
