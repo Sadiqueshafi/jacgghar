@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
+    "start": "cd backend && node app.js",
     "build": "cd dist && npm run herohu",
     "install-dist": "cd dist && npm install",
     "heroku-postbuild":"npm run install-dist && npm run build",
