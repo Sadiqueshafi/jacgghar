@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import {User}from './user.model';
 import { Router } from '@angular/router';
-import {environment} from '../../../environments/environment';
 import {ToastrService} from 'ngx-toastr'
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private contactsUrl = '/api/login';
+  private contactsUrl = 'http://localhost:8080/api/login';
  private authStatusListner = new Subject<boolean>();
  showSuccessMessage:boolean;
  servererrorMessage:string;
