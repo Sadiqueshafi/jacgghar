@@ -8,7 +8,7 @@ import {ToastrService} from 'ngx-toastr'
   providedIn: 'root'
 })
 export class UserService {
-  private contactsUrl = 'http://localhost:8080/api/login';
+  private contactsUrl = 'api/login';
  private authStatusListner = new Subject<boolean>();
  showSuccessMessage:boolean;
  servererrorMessage:string;

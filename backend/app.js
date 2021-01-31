@@ -16,7 +16,7 @@ const cors =require('cors');
 const { Mongoose } = require('mongoose');
 const PORT = process.env.PORT || 8080;
 app.use(cors());
-app.use('/api',rtsIndex );
+app.use('api',rtsIndex );
 app.use('/api',patientdetail);
 app.use('/api',blooddetail);
 app.use('/api',urinedetail);
@@ -55,5 +55,10 @@ else{
 }
 
 })
+//step:3
+
+if(process.env.NODE_ENV ==='production'){
+  app.use(express.static('./dist/herohu'))
+}
 app.listen(PORT,console.log(`server is starting at ${PORT}`))
 
