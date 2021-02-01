@@ -58,11 +58,11 @@ else{
 //step:3
 app.get('/*', function(req,res) {
 
-  res.sendFile(path.join(__dirname+'/dist/herohu/index.html'));
+  res.sendFile(path.join(__dirname+'/angularapp/index.html'));
   });
 
 if(process.env.NODE_ENV ==='production'){
-  app.use(express.static('./dist/herohu'))
+  app.use(express.static('/angularapp'))
 }
 app.listen(PORT,console.log(`server is starting at ${PORT}`))
 

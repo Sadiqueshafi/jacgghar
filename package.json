@@ -4,9 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "cd backend && node app.js",
-    "build": "cd dist && npm run herohu",
-    "install-dist": "cd dist && npm install",
-    "heroku-postbuild":"npm run install-dist && npm run build",
+    "build": "ng build",
+
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
