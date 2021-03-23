@@ -5,14 +5,13 @@ const bcrypt  = require('bcrypt');
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const { info } = require('console');
-// const detail = require('../config/detail.json')
 const logger = require('../logger/logger')
 const applicationCtrl = require('../helpers/applicationCtrl')
 var responseUtil = require('../utils/responseUtil')
 
 exports.getDetails= (req,res,next)=>{
   const user =User.find();
-  console.log(user);
+  console.log("d"+user);
       user.then(document =>{
       res.status(200).json({
       message:'urineDetail message fetch successfully',
