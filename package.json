@@ -11,8 +11,8 @@
     "postinstall": "ng build --output-path angularapp  --aot --prod"
   },
   "engines": {
-    "node": "v12.18.4",
-    "npm": "6.14.8"
+    "node": "v14.15.4",
+    "npm": "6.14.10"
   },
   "private": true,
   "dependencies": {
