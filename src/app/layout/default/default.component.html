@@ -1,9 +1,9 @@
 <!-- <div class="container-fixed"> -->
   <!-- <div class="main"> -->
     <!-- <div class="a" > -->
-
-<app-header (togglesidebarForme)="SidebarToggle($event)" *ngIf="userIsAuthonticated" ></app-header>
-<mat-sidenav-container *ngIf="userIsAuthonticated" >
+      *ngIf="userIsAuthonticated"
+<app-header (togglesidebarForme)="SidebarToggle($event)"  ></app-header>
+<mat-sidenav-container >
   <mat-sidenav color="primary" [(opened)]="sidebarOpen">
     <app-sidebar></app-sidebar>
   </mat-sidenav>

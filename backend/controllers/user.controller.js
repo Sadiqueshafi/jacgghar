@@ -12,7 +12,7 @@ var responseUtil = require('../utils/responseUtil')
 
 exports.getDetails= (req,res,next)=>{
   const user =User.find();
-  console.log(user)
+  console.log(user);
       user.then(document =>{
       res.status(200).json({
       message:'urineDetail message fetch successfully',
@@ -75,7 +75,8 @@ var user = new User();
   };
 
 
-exports.userLogin =(req,res,next)=>{
+exports.
+userLogin =(req,res,next)=>{
   let fetchuser;
   User.findOne({
       email:req.body.email
@@ -139,8 +140,6 @@ exports.forgetpassword =(req,res,next)=>{
       logger.error(e)
       return res.status(500).json({ error: true, msg: e, data: data });
   }
-
-
 
 
 
